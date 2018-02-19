@@ -1,0 +1,32 @@
+<style>
+  .outer{
+  	padding: 50px;
+  	margin:10px;
+  }
+  .outer select{
+  	padding: 10px;
+  	border-radius: 5px;
+  }
+  .outer div{
+  	margin-top: 10px;
+  	padding: 10px;
+  	border-radius: 5px;
+  	font-weight: bold;
+  }
+  .outer div span{
+  	display: inline-block;
+  	width: 100%;
+  }
+</style>
+<div ng-controller="TimezoneController">
+<!-- <h4>ngModelOptions support</h4> -->
+    <!-- <pre>Model: asas{{ngModelOptionsSelected}}</pre> -->
+    <!-- <input type="text" ng-model="ngModelOptionsSelected" ng-model-options="modelOptions" uib-typeahead="timezones for timezones in timezones | filter:$viewValue | limitTo:8" class="form-control"> -->
+    <div class="outer">
+    	<select class="form-control" ng-model="selectedTz" ng-change="getTimezone(selectedTz)" ng-options="tz for tz in timezones"> <option selected value> Select Timezone </option> </select>
+    	<div>
+    		<span ng-model="timezoneStandardName">{{timezoneStandardName}}</span>
+    		<span ng-model="stTime">{{stTime | date:'medium'}}</span>
+    	</div>
+    </div>
+</div>
